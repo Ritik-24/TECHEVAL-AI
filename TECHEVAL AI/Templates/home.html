@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Project Evaluator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="sidebar">
+            <div class="brand">
+                <h1>✨ TechEval AI</h1>
+                <p>Intelligent role assignment based on technical proficiency.</p>
+            </div>
+            <ul class="steps">
+                <li class="active">1. Project Setup</li>
+                <li>2. Team Roster</li>
+                <li>3. Assessment</li>
+                <li>4. Role Analysis</li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h2>Project Assessment Setup</h2>
+                <p>Define the scope of your software project.</p>
+            </div>
+            
+            <form method="POST">
+                <div class="input-group">
+                    <label for="project_title">Project Title</label>
+                    <input type="text" id="project_title" name="project_title" placeholder="e.g., MediScan E-commerce App" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="num_students">Number of Team Members</label>
+                    <input type="number" id="num_students" name="num_students" min="1" max="20" placeholder="e.g., 4" required>
+                </div>
+
+                <button type="submit" class="btn-primary">Continue to Roster →</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Project Evaluator - Team Roster</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="sidebar">
+            <div class="brand">
+                <h1>✨ TechEval AI</h1>
+                <p>Intelligent role assignment based on technical proficiency.</p>
+            </div>
+            <ul class="steps">
+                <li class="completed">1. Project Setup</li>
+                <li class="active">2. Team Roster</li>
+                <li>3. Assessment</li>
+                <li>4. Role Analysis</li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h2>Team Members</h2>
+                <p>Register the {{ num }} individuals for the technical evaluation.</p>
+            </div>
+            
+            <form method="POST">
+                {% for i in range(1, num + 1) %}
+                    <div class="input-group">
+                        <label for="student{{ i }}">Team Member {{ i }}</label>
+                        <input type="text" id="student{{ i }}" name="student{{ i }}" placeholder="Enter full name" required>
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn-primary">Generate Tech Assessment →</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

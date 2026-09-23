@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Project Evaluator - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-wrapper" style="max-width: 1300px;">
+        <div class="sidebar">
+            <div class="brand">
+                <h1>✨ TechEval AI</h1>
+                <p>Intelligent role assignment based on technical proficiency.</p>
+            </div>
+            <ul class="steps">
+                <li class="completed">1. Project Setup</li>
+                <li class="completed">2. Team Roster</li>
+                <li class="completed">3. Assessment</li>
+                <li class="active">4. Role Analysis</li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h2>Final Role Assignments</h2>
+                <p>AI-generated role optimization based on candidate performance.</p>
+            </div>
+            
+            <div class="table-wrapper">
+                {{ result | safe }}
+            </div>
+            
+            <a href="{{ url_for('home') }}">
+                <button class="btn-primary" style="margin-top: 30px; width: auto;">Run New Evaluation</button>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

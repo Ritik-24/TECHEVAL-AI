@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Project Evaluator - Assessment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="app-wrapper">
+        <div class="sidebar">
+            <div class="brand">
+                <h1>✨ TechEval AI</h1>
+                <p>Intelligent role assignment based on technical proficiency.</p>
+            </div>
+            <ul class="steps">
+                <li class="completed">1. Project Setup</li>
+                <li class="completed">2. Team Roster</li>
+                <li class="active">3. Assessment</li>
+                <li>4. Role Analysis</li>
+            </ul>
+        </div>
+        
+        <div class="main-content">
+            <div class="header">
+                <h2>Candidate: {{ student }}</h2>
+                <p>Select the most technically accurate response for each scenario.</p>
+            </div>
+            
+            <form method="POST">
+                {% for mcq in mcqs %}
+                    {% set outer_index = loop.index0 %}
+                    <fieldset>
+                        <legend>{{ loop.index }}. {{ mcq.question }}</legend>
+                        
+                        {% for opt in mcq.options %}
+                            <label class="quiz-option">
+                                <input type="radio" name="q{{ outer_index }}" value="{{ opt }}" required>
+                                <span>{{ opt }}</span>
+                            </label>
+                        {% endfor %}
+                    </fieldset>
+                {% endfor %}
+
+                <button type="submit" class="btn-primary">Submit Profile & Continue</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
